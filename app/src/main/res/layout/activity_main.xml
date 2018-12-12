@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:background="@color/colorPrimaryDark"
+    android:rowCount="2"
+    android:useDefaultMargins="true"
+    tools:context=".MainActivity">
+
+    <!--1-->
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+
+        >
+
+        <TextView
+            android:id="@+id/linear_horizontal_textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView1"
+            android:layout_marginRight="5dp"
+            />
+        <TextView
+            android:id="@+id/linear_horizontal_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="TextView2" />
+
+        <TextView
+            android:id="@+id/linear_horizontal_textView3"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView3" />
+
+    </LinearLayout>
+
+    <!--2-->
+    <RelativeLayout
+        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="0"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1">
+
+        <TextView
+            android:id="@+id/realative_textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="TextView1" />
+
+        <TextView
+            android:id="@+id/realative_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/realative_textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:text="TextView2" />
+
+        <TextView
+            android:id="@+id/realative_textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realative_textView1"
+            android:layout_alignEnd="@+id/realative_textView1"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="0dp"
+            android:text="TextView3" />
+
+
+    </RelativeLayout>
+
+
+    <!--3-->
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+
+
+        >
+
+        <TextView
+            android:id="@+id/linear_vertical_textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/linear_vertical_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/linear_vertical_textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </LinearLayout>
+
+
+    <!--TODO:Добавить кнопки-->
+    <android.support.constraint.ConstraintLayout
+        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_row="1"
+        android:layout_rowWeight="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1">
+
+
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</GridLayout>
