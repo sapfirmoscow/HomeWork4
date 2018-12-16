@@ -10,7 +10,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -53,7 +52,6 @@ public class MyIntentService extends IntentService {
                     bundle.putIntegerArrayList("Numbers", integers);
                     intent1.putExtra("Numbers", bundle);
                     sendBroadcast(intent1, "ru.sberbank.SEND_MESSAGES_PERMISSION");
-                    // Log.d("DEBIL","ITS WORK");
 
 
                     try {
@@ -86,7 +84,6 @@ public class MyIntentService extends IntentService {
         for (int i = 0; i < count; i++) {
             arrayList.add(getRandom(100));
         }
-        Log.d("TEST", "bla2 " + arrayList.size());
         return arrayList;
     }
 
