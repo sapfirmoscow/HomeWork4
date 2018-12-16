@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">HomeWork4"</string>
+    <string name="app_name">HomeWork4 Layouts"</string>
+    <string name="textview2">TextView2</string>
+    <string name="textview3">TextView3</string>
+    <string name="textview1">TextView1</string>
 </resources>

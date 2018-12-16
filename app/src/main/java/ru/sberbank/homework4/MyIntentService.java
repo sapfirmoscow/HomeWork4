@@ -3,6 +3,7 @@ package ru.sberbank.homework4;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -40,11 +41,34 @@ public class MyIntentService extends IntentService {
     }
 
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
+    protected void onHandleIntent(@Nullable final Intent intent) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; ; i++) {
+                    Intent intent1 = new Intent("ru.sberbank.SEND_MESSAGES_FILTER");
+                    Bundle bundle = new Bundle();
+                    ArrayList<Integer> integers = getRandomNumbers(MainActivity.capacityTextViews);
+                    bundle.putIntegerArrayList("Numbers", integers);
+                    intent1.putExtra("Numbers", bundle);
+                    sendBroadcast(intent1, "ru.sberbank.SEND_MESSAGES_PERMISSION");
+                    // Log.d("DEBIL","ITS WORK");
+
+
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
         for (int i = 0; ; i++) {
             if (shoudFinish) break;
 
-            sendToClients(Message.obtain(null, MSG_VALUE, getRandomNumbers(12)));
+            sendToClients(Message.obtain(null, MSG_VALUE, getRandomNumbers(MainActivity.capacityTextViews)));
 
             try {
                 Thread.sleep(1000);
@@ -53,10 +77,11 @@ public class MyIntentService extends IntentService {
             }
         }
 
+
     }
 
 
-    private Object getRandomNumbers(int count) {
+    private ArrayList<Integer> getRandomNumbers(int count) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             arrayList.add(getRandom(100));
